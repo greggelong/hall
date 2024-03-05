@@ -18,8 +18,10 @@ function setup(){
   sbtm = 5;
   h=0;
   frameRate(3)
-  doors[0].filter(POSTERIZE, 3);
-  doors[1].filter(POSTERIZE, 3);
+  //doors[0].filter(POSTERIZE, 3);
+ // doors[1].filter(POSTERIZE, 3);
+  doors[0].filter(BLUR, 3);
+  doors[1].filter(BLUR, 3);
   imageMode(CENTER)
   
 }
@@ -31,6 +33,7 @@ function draw(){
   
    
   tint(255, 190); // Display at half opacity
+  //tint(190,(10*frameCount)%255,(255-frameCount*10)%255, 190);
   image(doors[frameCount%2],0,0,width,height)
   //image(doors[(frameCount+1)%2],0,100,width*0.8,height*0.8)
   //image(doors[(frameCount)%2],0,0,width*0.6,height*0.6)
