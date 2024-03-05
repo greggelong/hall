@@ -26,15 +26,16 @@ function setup(){
 
 function draw(){
   
-  background(0);
+  background(255);
   translate(width/2,height/2)
   
    
-  //tint(255, 100); // Display at half opacity
+  tint(255, 190); // Display at half opacity
   image(doors[frameCount%2],0,0,width,height)
   //image(doors[(frameCount+1)%2],0,100,width*0.8,height*0.8)
   //image(doors[(frameCount)%2],0,0,width*0.6,height*0.6)
   image(doors[(frameCount+1)%2],0,0,width/2,height/2)
+  //tint(255, 100); // Display at half opacity
  image(doors[(frameCount)%2],0,0,width/4,height/4)
   image(doors[(frameCount+1)%2],0,0,width/8,height/8)
   image(doors[(frameCount)%2],0,0,width/16,height/16)
