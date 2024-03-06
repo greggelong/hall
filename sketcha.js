@@ -4,6 +4,9 @@ let sp;
 let lns =60;
 let h;
 let doors =[]
+let lasttouch = 0;
+let rock= false
+
 function preload(){
     doors[0] = loadImage("d1.jpg")
     doors[1] = loadImage("d2.jpg")
@@ -43,4 +46,31 @@ function draw(){
   image(doors[(frameCount+1)%2],0,0,width/8,height/8)
   image(doors[(frameCount)%2],0,0,width/16,height/16)
   //noLoop()
+}
+
+
+function touchStarted() {
+  const currenttime = millis();
+  const timesincelasttouch = currenttime - lasttouch;
+
+  if (timesincelasttouch > 500) {
+    /// toggle mix
+    if (!rock) {
+      rock = true;
+      //doors[0].filter(POSTERIZE, 3);
+      //doors[1].filter(POSTERIZE, 3);
+      //doors[0].filter(BLUR, 3);
+      //doors[1].filter(BLUR, 3);
+    } else {
+      rock = false;
+      //doors[0].filter(BLUR, 0);
+      //doors[1].filter(BLUR, 0);
+    }
+  }
+
+  lasttouch = currenttime;
+}
+
+function mouseClicked() {
+  touchStarted();
 }
